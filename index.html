@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BITZZ PHONE | Apple Premium Reseller</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <div id="authModal" class="auth-overlay" style="display: none;">
+      <div class="auth-popup">
+        <h2>Autentikasi Keanggotaan</h2>
+        <p>Lengkapi profil Anda untuk melanjutkan transaksi.</p>
+        <form id="registerForm" onsubmit="handleRegistration(event)">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="regName" required placeholder="Nama Anda" />
+          </div>
+          <div class="form-group">
+            <label>Nomor WhatsApp *</label>
+            <input type="tel" id="regPhone" required placeholder="08xxxxxxxx" />
+          </div>
+          <div class="form-group">
+            <label>Alamat Lengkap *</label>
+            <input type="text" id="regAddress" required placeholder="Jl. Contoh No. 1" />
+          </div>
+          <div class="form-group">
+            <label>No. Rekening/E-Wallet</label>
+            <input type="text" id="regBankNo" required placeholder="Nomor akun pembayaran" />
+          </div>
+          <div class="form-group">
+            <label>Penyedia Layanan</label>
+            <select id="regBankName" required>
+              <option value="SeaBank">SeaBank</option>
+              <option value="DANA">DANA</option>
+              <option value="BCA">BCA</option>
+              <option value="Mandiri">Bank Mandiri</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-auth">KONFIRMASI & LANJUT CHECKOUT</button>
+        </form>
+        <button onclick="closeAuthModal()" class="btn-close-text">Kembali ke Keranjang</button>
+      </div>
+    </div>
+
+    <div id="mainContentWrapper">
+      <nav>
+        <div class="logo">
+          <img src="image/ChatGPT_Image_Jun_25__2026__05_34_06_PM-removebg-preview.png" alt="BITZZ PHONE" class="brand-logo-img" />
+        </div>
+        <div class="nav-right">
+          <span id="userGreeting" class="user-greeting"></span>
+          <button class="btn-cart-nav" onclick="openCartModal()">🛒 Tas Belanja (<span id="cartCount">0</span>)</button>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <p class="hero-tag">Official Premium iOS Device Provider</p>
+        <h1>Kemewahan Teknologi<br>Dalam Genggaman Anda.</h1>
+        <div class="search-container">
+          <input type="text" id="mainSearch" placeholder="Cari varian iPhone..." onkeyup="searchApp()" />
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="product-grid" id="productGrid">
+          
+          <div class="product-card" data-title="iphone 17 pro max">
+            <div class="badge-new">Terbaru</div>
+            <img src="image/17_pm-removebg-preview.png" alt="iPhone 17 Pro Max" />
+            <h3>iPhone 17 Pro Max</h3>
+            <p class="price">Rp 26.500.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-17pm" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 17 Pro Max', 26500000, 'qty-17pm')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 17 pro">
+            <div class="badge-new">Terbaru</div>
+            <img src="image/17p-removebg-preview.png" alt="iPhone 17 Pro" />
+            <h3>iPhone 17 Pro</h3>
+            <p class="price">Rp 23.000.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-17p" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 17 Pro', 23000000, 'qty-17p')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 17 basic">
+            <div class="badge-new">Terbaru</div>
+            <img src="image/17b-removebg-preview.png" alt="iPhone 17" />
+            <h3>iPhone 17 Standard</h3>
+            <p class="price">Rp 15.000.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-17b" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 17 Standard', 15000000, 'qty-17b')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 16 pro max">
+            <img src="image/ip_16_pm-removebg-preview.png" alt="iPhone 16 Pro Max" />
+            <h3>iPhone 16 Pro Max</h3>
+            <p class="price">Rp 23.500.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-16pm" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 16 Pro Max', 23500000, 'qty-16pm')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 16 pro">
+            <img src="image/ip_16_p-removebg-preview.png" alt="iPhone 16 Pro" />
+            <h3>iPhone 16 Pro</h3>
+            <p class="price">Rp 19.500.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-16p" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 16 Pro', 19500000, 'qty-16p')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 16 basic">
+            <img src="image/16_b-removebg-preview.png" alt="iPhone 16" />
+            <h3>iPhone 16 Standard</h3>
+            <p class="price">Rp 15.000.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-16b" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 16 Standard', 15000000, 'qty-16b')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 15 pro">
+            <img src="image/ip_15_pm-removebg-preview.png" alt="iPhone 15 Pro Max" />
+            <h3>iPhone 15 Pro Max</h3>
+            <p class="price">Rp 11.000.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-15p" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 15 Pro', 11000000, 'qty-15p')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 16 pro">
+            <img src="image/ip_15p-removebg-preview.png" alt="iPhone 15 Pro" />
+            <h3>iPhone 15 Pro</h3>
+            <p class="price">Rp 19.500.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-16p" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 16 Pro', 19500000, 'qty-16p')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 15 basic">
+            <img src="image/ip_15_b-removebg-preview.png" alt="iPhone 15" />
+            <h3>iPhone 15 Standard</h3>
+            <p class="price">Rp 15.000.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-16b" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 16 Standard', 15000000, 'qty-16b')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 14 pro max">
+            <img src="image/iphone_14_pro_max_gold_1_3-removebg-preview.png" alt="iPhone 14 Pro Max" />
+            <h3>iPhone 14 Pro Max</h3>
+            <p class="price">Rp 9.500.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-14pm" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 14 Pro Max', 9500000, 'qty-14pm')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 14 pro">
+            <img src="image/sewa-rental-iphone-14-pro-jakarta-1-removebg-preview.png" alt="iPhone 14 Pro" />
+            <h3>iPhone 14 Pro</h3>
+            <p class="price">Rp 8.500.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-14p" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 14 Pro', 8500000, 'qty-14p')">Beli</button>
+          </div>
+
+          <div class="product-card" data-title="iphone 14 basic">
+            <img src="image/iphone_14_blue_1-removebg-preview.png" alt="iPhone 14" />
+            <h3>iPhone 14 Standard</h3>
+            <p class="price">Rp 7.000.000</p>
+            <div class="qty-box"><label>Qty:</label><input type="number" value="1" min="1" id="qty-14b" /></div>
+            <button class="btn-buy" onclick="addToCart('iPhone 14 Standard', 7000000, 'qty-14b')">Beli</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="modal" class="modal"><div class="modal-content" id="modalContent"></div></div>
+
+      <footer>
+        <p>&copy; 2026 BITZZ PHONE | Authorized Concept.</p>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
