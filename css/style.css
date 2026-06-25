@@ -1,0 +1,436 @@
+:root {
+  /* Variabel warna terpusat berbasis Cyan Blue Neon sesuai dengan Logo baru */
+  --neon-blue: #00d2ff;
+  --neon-blue-hover: #00a8ff;
+  --bg-dark: #0b0f19;       /* Gelap kebiruan murni agar menyatu sempurna dengan background logo */
+  --card-bg: #111827;       /* Muted Dark Onyx Blue */
+  --apple-gray: #1f2937;    /* Slate abu-abu gelap */
+  --text-white: #f8f9fa;    
+  --text-muted: #9ca3af;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  overflow-x: hidden;
+}
+
+/* Navbar Modern Premium */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10%;
+  background: rgba(11, 15, 25, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.brand-logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.brand-logo-img:hover {
+  transform: scale(1.03);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-greeting {
+  color: var(--neon-blue);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.btn-cart-nav {
+  background: var(--apple-gray);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-cart-nav:hover {
+  background: var(--neon-blue);
+  color: #000000;
+  border-color: var(--neon-blue);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 90px 20px 50px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  color: var(--neon-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 35px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.search-container input {
+  width: 100%;
+  max-width: 480px;
+  padding: 16px 26px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--apple-gray);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.15);
+}
+
+/* Katalog Grid */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 5% 80px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 35px 24px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 210, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 210, 255, 0.1);
+}
+
+.badge-new {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--neon-blue);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  margin: 15px 0;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-white);
+}
+
+.product-card .price {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+.qty-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.qty-box input {
+  width: 55px;
+  padding: 7px;
+  background: var(--apple-gray);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  outline: none;
+}
+
+/* Tombol Beli Eksklusif */
+.btn-buy {
+  width: 100%;
+  padding: 12px 0;
+  background: var(--neon-blue);
+  color: #000000;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-buy:hover {
+  background: var(--neon-blue-hover);
+  transform: scale(1.02);
+}
+
+/* Auth Pop-up Overlay */
+.auth-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 10, 17, 0.85);
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.auth-popup {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.auth-popup h2 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.auth-popup p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--apple-gray);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 12px;
+  outline: none;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--neon-blue);
+}
+
+.btn-auth {
+  width: 100%;
+  padding: 14px;
+  background: var(--neon-blue);
+  color: #000000;
+  border: none;
+  font-weight: 600;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+}
+
+.btn-auth:hover {
+  background: var(--neon-blue-hover);
+}
+
+.btn-close-text {
+  margin-top: 18px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+/* Blur Efek Latar Belakang */
+.blurred {
+  filter: blur(15px);
+  pointer-events: none;
+}
+
+/* Modal Box Keranjang Pop-up */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 540px;
+  color: #1d1d1f;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Checkout */
+.form-checkout label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 14px 0 6px;
+  color: #1d1d1f;
+}
+
+.form-checkout input, .form-checkout select {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #d2d2d7;
+  font-size: 0.9rem;
+  color: #000;
+  outline: none;
+}
+
+/* MOTO TOKO DI CHECKOUT */
+.motto-box {
+  background: #f5f5f7;
+  border-left: 4px solid var(--neon-blue);
+  padding: 14px;
+  margin: 22px 0;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #1d1d1f;
+}
+
+.btn-pay-now {
+  background: #0b0f19;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.btn-pay-now:hover {
+  background: #000000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Invoice QRIS & Details */
+.invoice-container { color: #1d1d1f; }
+.invoice-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px;}
+.invoice-status { background: #ffe3e3; color: #e03131; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;}
+.payment-details { background: #f5f5f7; padding: 20px; border-radius: 14px; margin-top: 22px; font-size: 0.85rem; border: 1px solid #e5e5ea; }
+.qris-image { width: 165px; display: block; margin: 15px auto; border: 1px solid #d2d2d7; padding: 5px; background: #fff; border-radius: 8px;}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: #070a11;
+}
+
+@keyframes blink {
+  50% { opacity: 0.4; }
+}
